@@ -41,7 +41,7 @@ En la base hay:
 - 12 docentes (`doc01`–`doc12`)
 - 3 administrativos (`admin01`–`admin03`)
 - 12 materias
-- 1 periodo activo: **2024-2**
+- 1 periodo activo: **2026-2**
 
 **Contraseña de todos los usuarios: `123456`**
 
@@ -80,9 +80,9 @@ python main.py
 3. **Ingresar Notas**:
    - Selecciona sección
    - Por cada estudiante llena notas y pesos
-   - **1er corte**: 3 notas con sus pesos (suma pesos ≤ 35%, cada uno ≤ 30%)
+   - **1er corte**: 3 notas con sus pesos (suma pesos ≤ 35%)
    - **2do corte**: igual que el 1er corte
-   - **3er corte**: Examen final (×20%) + Habilitación (×10%) = 30% fijo
+   - **3er corte**: Examen final 30% fijo
    - Notas entre 0 y 50
    - Guarda individual → publica sección completa
 
@@ -94,8 +94,7 @@ python main.py
 academia/
 ├── main.py                  # Punto de entrada
 ├── db/
-│   ├── connection.py        # Configuración DB
-│   └── setup.py             # Crear tablas y seed
+│   ├── conexion.py        # Configuración DB
 ├── models/
 │   └── models.py            # Capa de datos (SQL)
 └── views/
@@ -111,12 +110,12 @@ academia/
 ```
 Definitiva = (Σ nota_i × peso_i / 100) [1er corte]
            + (Σ nota_i × peso_i / 100) [2do corte]
-           + examen_final × 0.20 + habilitacion × 0.10
+           + examen_final × 0.30
 ```
 
 Ejemplo: 
 - 1er corte: nota 40 peso 20%, nota 35 peso 15% → subtotal = 8 + 5.25 = 13.25
 - 2do corte: nota 45 peso 35% → subtotal = 15.75
-- Examen: 42 → 42×0.20 = 8.4 | Habilitación: 0 → 0
+- Examen: 42 → 42×0.20 = 8.4 
 - **Definitiva: 13.25 + 15.75 + 8.4 = 37.4 / 100**
   
